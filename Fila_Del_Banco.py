@@ -2,6 +2,7 @@ from queue import Queue
 
 # El tipo de fila debería ser Queue[int], pero la versión de python del CMS no lo soporta. Usaremos en su lugar simplemente "Queue"
 def avanzarFila(fila: Queue, min: int):
+  pass
   #implementar función
 
 if __name__ == '__main__':
