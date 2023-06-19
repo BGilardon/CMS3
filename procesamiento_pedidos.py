@@ -50,30 +50,30 @@ def procesamiento_pedidos(pedidos: Queue, stock_productos: Dict[str, int], preci
   return res
 
 
-def test():
-  pedidos = Queue()
-  pedidos.put({"id":21,"cliente":"Gabriela", "productos":{"Manzana":2}})
-  pedidos.put({"id":1,"cliente":"Juan","productos":{"Manzana":2,"Pan":4,"Factura":6}})
-  stock_productos = {"Manzana":10, "Leche":5, "Pan":3, "Factura":0}
-  precios_productos = {"Manzana":3.5, "Leche":5.5, "Pan":3.5, "Factura":5}
-  R = procesamiento_pedidos(pedidos, stock_productos, precios_productos)
-  pedido_procesado = [{'id': 21, 'cliente': 'Gabriela', 'productos': {'Manzana': 2}, 'precio_total': 7.0, 'estado': 'completo'}
-                      ,{'id': 1, 'cliente': 'Juan', 'productos': {'Manzana': 2, 'Pan': 3, 'Factura': 0}, 'precio_total': 17.5, 'estado': 'incompleto'}]
-  for i in range(len(R)):
-    print(R[i])
-    print(pedido_procesado[i])
-    print(R[i] == pedido_procesado[i])
-    print()
+# def test():
+#   pedidos = Queue()
+#   pedidos.put({"id":21,"cliente":"Gabriela", "productos":{"Manzana":2}})
+#   pedidos.put({"id":1,"cliente":"Juan","productos":{"Manzana":2,"Pan":4,"Factura":6}})
+#   stock_productos = {"Manzana":10, "Leche":5, "Pan":3, "Factura":0}
+#   precios_productos = {"Manzana":3.5, "Leche":5.5, "Pan":3.5, "Factura":5}
+#   R = procesamiento_pedidos(pedidos, stock_productos, precios_productos)
+#   pedido_procesado = [{'id': 21, 'cliente': 'Gabriela', 'productos': {'Manzana': 2}, 'precio_total': 7.0, 'estado': 'completo'}
+#                       ,{'id': 1, 'cliente': 'Juan', 'productos': {'Manzana': 2, 'Pan': 3, 'Factura': 0}, 'precio_total': 17.5, 'estado': 'incompleto'}]
+#   for i in range(len(R)):
+#     print(R[i])
+#     print(pedido_procesado[i])
+#     print(R[i] == pedido_procesado[i])
+#     print()
   
-  print(pedidos.empty())
-  R2 = procesamiento_pedidos(pedidos, stock_productos, precios_productos)
-  print(R2)
-  pedidos.put({"id":14,"cliente":"Jose", "productos":{}})
-  R3 = procesamiento_pedidos(pedidos, stock_productos, precios_productos)
-  print(R3)
+#   print(pedidos.empty())
+#   R2 = procesamiento_pedidos(pedidos, stock_productos, precios_productos)
+#   print(R2)
+#   pedidos.put({"id":14,"cliente":"Jose", "productos":{}})
+#   R3 = procesamiento_pedidos(pedidos, stock_productos, precios_productos)
+#   print(R3)
 
 
-test()
+# test()
 
 
 if __name__ == '__main__':
