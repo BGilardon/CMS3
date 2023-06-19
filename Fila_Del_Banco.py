@@ -1,21 +1,55 @@
 from queue import Queue
 
 # El tipo de fila debería ser Queue[int], pero la versión de python del CMS no lo soporta. Usaremos en su lugar simplemente "Queue"
-def avanzarFila(fila: Queue, min: int):
-  pass
-  #implementar función
 
-if __name__ == '__main__':
-  fila: Queue = Queue()
-  fila_inicial: int = int(input())
-  for numero in range(1, fila_inicial+1):
-    fila.put(numero)
-  min: int = int(input())
-  avanzarFila(fila, min)
-  res = []
-  for i in range(0, fila.qsize()):
-    res.append(fila.get())
-  print(res)
+def avanzarFila(fila: Queue, min: int):
+  noResuelto : Queue = Queue()
+  numero = fila.qsize()
+
+  for contador in range(min + 1):
+
+    if contador % 4 == 0: # Sumar persona a la fila
+      numero += 1
+      fila.put(numero)
+    
+    if contador % 10 == 1 and not fila.empty(): # Caja1
+      fila.get() 
+    
+    if contador % 4 == 3 and not fila.empty(): # Caja2
+      fila.get()
+    
+    if contador % 4 == 2 and not fila.empty(): #Caja3
+      noResuelto.put(fila.get())
+    
+    if contador % 4 == 1 and not noResuelto.empty():
+      fila.put( noResuelto.get() )
+  
+  return fila
+
+
+def test():
+  Test1 = Queue()
+  for i in range(1,4):
+    Test1.put(i)
+  print(Test1.queue)
+  T1 = avanzarFila(Test1, 5)
+  print(list(T1.queue))
+
+test()
+
+
+
+# if __name__ == '__main__':
+#   fila: Queue = Queue()
+#   fila_inicial: int = int(input())
+#   for numero in range(1, fila_inicial+1):
+#     fila.put(numero)
+#   min: int = int(input())
+#   avanzarFila(fila, min)
+#   res = []
+#   for i in range(0, fila.qsize()):
+#     res.append(fila.get())
+#   print(res)
 
 
 # Caja1: Empieza a atender 10:01, y atiende a una persona cada 10 minutos

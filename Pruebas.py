@@ -29,4 +29,6 @@ def prueba2(pedido):
     print(E)
     print("!!!!")
 
-prueba2(pedido1)
+Test1 = Queue()
+
+print(Test1.qsize())
