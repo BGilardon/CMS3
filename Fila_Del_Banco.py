@@ -27,29 +27,29 @@ def avanzarFila(fila: Queue, min: int):
   return fila
 
 
-def test():
-  Test1 = Queue()
-  for i in range(1,4):
-    Test1.put(i)
-  print(Test1.queue)
-  T1 = avanzarFila(Test1, 5)
-  print(list(T1.queue))
+# def test(n, m):
+#   Test1 = Queue()
+#   for i in range(1,n+1):
+#     Test1.put(i)
+#   print(Test1.queue)
+#   T1 = avanzarFila(Test1, m)
+#   print(list(T1.queue))
 
-test()
+# test(3,5)
 
 
 
-# if __name__ == '__main__':
-#   fila: Queue = Queue()
-#   fila_inicial: int = int(input())
-#   for numero in range(1, fila_inicial+1):
-#     fila.put(numero)
-#   min: int = int(input())
-#   avanzarFila(fila, min)
-#   res = []
-#   for i in range(0, fila.qsize()):
-#     res.append(fila.get())
-#   print(res)
+if __name__ == '__main__':
+  fila: Queue = Queue()
+  fila_inicial: int = int(input())
+  for numero in range(1, fila_inicial+1):
+    fila.put(numero)
+  min: int = int(input())
+  avanzarFila(fila, min)
+  res = []
+  for i in range(0, fila.qsize()):
+    res.append(fila.get())
+  print(res)
 
 
 # Caja1: Empieza a atender 10:01, y atiende a una persona cada 10 minutos
