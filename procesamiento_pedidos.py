@@ -29,8 +29,7 @@ def procesamiento_pedidos(pedidos: Queue, stock_productos: Dict[str, int], preci
     return entrega
 
   while not pedidos.empty():
-    pedidoActual = pedidos.get() 
-    entrega = prepararEntrega(pedidoActual)
+    entrega = prepararEntrega(pedidos.get())
 
     for producto in stock_productos:
     
@@ -77,13 +76,13 @@ def test():
 test()
 
 
-# if __name__ == '__main__':
-#   pedidos: Queue = Queue()
-#   list_pedidos = json.loads(input())
-#   [pedidos.put(p) for p in list_pedidos]
-#   stock_productos = json.loads(input())
-#   precios_productos = json.loads(input())
-#   print("{} {}".format(procesamiento_pedidos(pedidos, stock_productos, precios_productos), stock_productos))
+if __name__ == '__main__':
+  pedidos: Queue = Queue()
+  list_pedidos = json.loads(input())
+  [pedidos.put(p) for p in list_pedidos]
+  stock_productos = json.loads(input())
+  precios_productos = json.loads(input())
+  print("{} {}".format(procesamiento_pedidos(pedidos, stock_productos, precios_productos), stock_productos))
 
 # Ejemplo input  
 # pedidos: [{"id":21,"cliente":"Gabriela", "productos":{"Manzana":2}}, {"id":1,"cliente":"Juan","productos":{"Manzana":2,"Pan":4,"Factura":6}}]
